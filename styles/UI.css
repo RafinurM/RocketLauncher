@@ -1,0 +1,119 @@
+/* all styles for user interface, buttons, tips, messages */
+
+.timer {
+    display: block;
+    position: absolute;
+    font-size: 4rem;
+    font-weight: 900;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: white;
+}
+
+.navigation_panel {
+    display: flex;
+    padding: 15px;
+}
+
+.gameModes {
+    padding: 2px;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    left: 150px;
+}
+
+#gameModeTitle {
+    color: white;
+    font-size: 1rem;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-family: sans-serif;
+}
+
+.gameModesTitleWrapper {
+    display: flex;
+    justify-content: center;
+    padding: 2px;
+}
+
+#modes {
+    display: flex;
+
+}
+
+.mode {
+    color: rgb(255, 255, 255);
+    text-transform: uppercase;
+    font-family: sans-serif;
+    padding: 5px;
+    border: 1px inset rgb(0, 0, 0);
+    background-color: rgb(117, 117, 117);
+}
+.mode:hover {
+    cursor: pointer;
+    border: 1px solid green;
+}
+
+
+.choosed {
+    background-color: rgb(68, 105, 0);
+}
+#score {
+    width: 50px;
+    margin: 5px;
+    color: white;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    text-align: center;
+}
+
+#scoreInfo {
+    font-size: large;
+    color: wheat;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    text-align: center;
+    display: inline;
+}
+
+#messages {
+    min-width: 200px;
+    max-width: 300px;
+    padding: 10px;
+    position: absolute;
+    z-index: 100000;
+    top: 20vh;
+    left: 50%;
+    transform:translate(-50%);
+    background-color: rgba(12, 139, 148, 0.815);
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    visibility: hidden;
+}
+
+#messages:hover {
+    cursor: pointer;
+}
+
+#gameStatus {
+    color: aliceblue;
+    text-transform: uppercase;
+    font-size: 2rem;
+    font-weight: 900;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+/* подсказки */
+
+.tip {
+    width: 400px;
+    position: relative;
+    padding: 10px;
+    top: 70px;
+}
+
+.tipText {
+    font-size: 28px;
+    color:rgb(255, 255, 255);
+}

@@ -1,0 +1,113 @@
+/* all styles for rocket and rocket animations */
+
+.rocketFall {
+    transition-duration: 3s;
+    top: calc(100vh - 20vh);
+}
+
+.explosed {
+    position: absolute;
+    animation: explose 6s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+
+@keyframes explose {
+    from {
+        top: 0px
+    }
+
+    5% {
+        top: -90px
+    }
+
+    10% {
+        top: -80px
+    }
+
+    15% {
+        top: -55px
+    }
+
+    25% {
+        top: -25px
+    }
+}
+
+.rocket {
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    bottom: 0;
+    left: 512px;      
+    z-index: 10000;
+    display: flex;
+    flex-wrap: wrap;
+    transition-property: all;
+    transition-timing-function: ease-in;
+}
+
+.suaring {
+    animation: suaring 3s linear infinite;
+    transform-origin: bottom;
+}
+
+@keyframes suaring {
+    from {
+        transform: rotate(0deg) translate(-5px) rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg) translate(-5px) rotate(-360deg);
+    }
+}
+
+.rocketFire {
+    width: 20px;
+    height: 20px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    position: relative;
+    top: -22px;
+    left: 15px;
+    background-image: url(/img/fire-70.gif);
+    visibility: hidden;
+}
+
+.rocketPart {
+    width: 25px;
+    height: 25px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    left: 0px;
+    top: 0px;
+    transition-property: all;
+    transition-duration: 3s;
+}
+
+.rocketCabine {
+    width: 50px;
+}
+
+.rocketPart1 {
+    background-image: url(/img/RocketParts/Part1.png);
+}
+
+.rocketPart2 {
+    background-image: url(/img/RocketParts/Part2.png);
+}
+
+.rocketPart3 {
+    background-image: url(/img/RocketParts/Part3.png);
+}
+
+.rocketPart4 {
+    background-image: url(/img/RocketParts/Part4.png);
+}
+
+.rocketPart5 {
+    background-image: url(/img/RocketParts/Part5.png);
+    margin: auto;
+}
+
+

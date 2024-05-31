@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<!-- This is free fun game for all. -->
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0" />
+  <meta name="author" content="altynzatug/RM" />
+  <meta name="description" content="This simple game for all. Use rocket and up you score! Have a fun." />
+  <meta name="keywords" content="game, browser, rocket, launcher, simple, fun, altynzatug, js" />
+  <link rel="stylesheet" href="./styles/main.css" />
+  <link rel="stylesheet" href="./styles/rocket.css" />
+  <link rel="stylesheet" href="./styles/UI.css" />
+  <link rel="stylesheet" href="./styles/media.css" />
+  <link rel="icon" type="image/x-icon" href="./img/logo.PNG" />
+  <title>Rocket Launcher</title>
+</head>
+
+<body>
+  <div id="gameField">
+    <div class="rocket">
+      <div class="rocketPart rocketPart1"></div>
+      <div class="rocketPart rocketPart2"></div>
+      <div class="rocketPart rocketPart3"></div>
+      <div class="rocketPart rocketPart4"></div>
+      <div class="rocketCabine">
+        <div class="rocketPart rocketPart5"></div>
+        <div class="rocketFire"></div>
+      </div>
+    </div>
+    <div id="sky">
+      <div class="cloud cloud_1"></div>
+      <div class="cloud cloud_2"></div>
+      <div class="cloud cloud_3"></div>
+      <div class="cloud cloud_4"></div>
+    </div>
+    <div id="earth">
+      <div class="navigation_panel">
+        <div class="timer">
+          <span id="timerCount">60</span>
+        </div>
+
+        <div class="gameModes">
+          <div class="gameModesTitleWrapper">
+            <span id="gameModeTitle">game mode</span>
+          </div>
+          <div id="modes">
+            <div class="mode easy choosed">easy</div>
+            <div class="mode medium">medium</div>
+            <div class="mode hard">hard</div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="messages">
+    <div id="gameStatus"></div>
+    <span id="scoreInfo">Your score is: <span id="score">0</span></span>
+  </div>
+  <script type="module" src="./js/app.js"></script>
+</body>
+
+</html>

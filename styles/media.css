@@ -1,0 +1,84 @@
+/* media for large screens */
+
+@media (min-width: 1024px) {
+    #messages {
+        left: 512px;
+    }
+    @keyframes cloud2 {
+        from {
+            left: 0;
+        }
+
+        to {
+            left: 20%;
+        }
+    }
+
+}
+
+
+@media (max-width: 760px) {
+    .rocket {
+        left: 330px
+    }
+    .tip {
+        width: 300px;
+    }
+    .tipText {
+        font-size: 24px;
+    }
+
+    .star {
+        width: 40px;
+        height: 40px;
+    }
+}
+
+@media (max-width: 480px) {
+    .rocket {
+        left: 240px
+    }
+    #gameStatus {
+        font-size: 1rem;
+    }
+    .tip {
+        width: 260px;
+    }
+    .tipText {
+        font-size: 20px;
+    }
+    .star {
+        width: 30px;
+        height: 30px;
+    }
+}
+
+@media (max-width: 360px) {
+    .rocket {
+        left: 180px
+    }
+
+    .tip {
+        width: 200px;
+    }
+    .tipText {
+        font-size: 16px;
+    }
+    .star {
+        width: 20px;
+        height: 20px;
+    }
+
+    .rocket {
+        width: 20px;
+        height: 20px;
+    }
+    .rocketPart {
+        width: 10px;
+        height: 10px;
+    }
+    .rocketFire {
+        width: 5px;
+        height: 5px;
+    }
+}
