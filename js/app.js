@@ -1,27 +1,26 @@
 import getRandomNumber from "./additional.js";
 
-let rocket = document.querySelector(".rocket");
-let rocketFire = document.querySelector(".rocketFire");
-let messages = document.getElementById("messages");
-let gameStatus = document.getElementById("gameStatus");
+const rocket = document.querySelector(".rocket");
+const rocketFire = document.querySelector(".rocketFire");
+const messages = document.getElementById("messages");
+const gameStatus = document.getElementById("gameStatus");
 let rocketCoords;
-let earth = document.getElementById("earth");
-let sky = document.getElementById("sky");
+const earth = document.getElementById("earth");
+const sky = document.getElementById("sky");
 let starsCreateTimer;
 let rocketStartAnimationID;
-let rocketParts = document.getElementsByClassName("rocketPart");
+const rocketParts = document.getElementsByClassName("rocketPart");
 let score = 0;
-let timer = document.getElementById("timerCount");
-let scoreElem = document.getElementById("score");
+const timer = document.getElementById("timerCount");
+const scoreElem = document.getElementById("score");
 let stars = [];
-let starTimer = 15000; // 15s 
+let starTimer = 15000; // 15s
 let starCreateTime = 500; // every 0.5s
 let timerId;
 let time = 60; // game time
-let easyGameMode = document.querySelector(".easy");
-let mediumGameMode = document.querySelector(".medium");
-let hardGameMode = document.querySelector(".hard");
-
+const easyGameMode = document.querySelector(".easy");
+const mediumGameMode = document.querySelector(".medium");
+const hardGameMode = document.querySelector(".hard");
 
 function easy() {
   time = 60;
@@ -66,28 +65,30 @@ function newGame() {
   setGameMode(easyGameMode, mediumGameMode, hardGameMode);
   messages.style.visibility = "visible"; // show start message
   gameStatus.innerHTML = "Game start"; // text
-  messages.addEventListener("click", launchRocket); // 
-  if (rocket.classList.contains("rocketFall")) { //checking previos status 
+  messages.addEventListener("click", launchRocket); //
+  if (rocket.classList.contains("rocketFall")) {
+    //checking previos status
     rocket.classList.remove("rocketFall");
   }
   rocketFire.style.visibility = "visible"; // rocket fire is enable
-  let rocketPartsArr = Array.from(rocketParts);  //make array of rocket parts and set default
-  rocketPartsArr.forEach(rocketPart => {
+  let rocketPartsArr = Array.from(rocketParts); //make array of rocket parts and set default
+  rocketPartsArr.forEach((rocketPart) => {
     rocketPart.removeAttribute("style");
     rocketPart.classList.remove("explosed");
-  })
-  initial();  // make default positions
+  });
+  initial(); // make default positions
 }
 
 function initial() {
   rocketFire.style.visibility = "hidden";
-  rocket.removeAttribute("style");  // remove all styles
+  rocket.removeAttribute("style"); // remove all styles
   setupRocket();
   score = 0;
   earth.style.borderTop = "5px solid green"; // сажаем зелень
 }
 
-function launchTimer(time) { // game timer base 60s
+function launchTimer(time) {
+  // game timer base 60s
   timer.innerHTML = `${time}`;
   timerId = setInterval(() => {
     time--;
@@ -103,13 +104,12 @@ function launchRocket() {
   easyGameMode.removeEventListener("click", easy);
   mediumGameMode.removeEventListener("click", medium);
   hardGameMode.removeEventListener("click", hard);
-  
   messages.style.visibility = "hidden";
   gameStatus.innerHTML = "in game";
   rocketFire.style.visibility = "visible";
   rocket.classList.add("suaring");
   window.requestAnimationFrame(rocketAnimate);
-  setTimeout(() => document.addEventListener("keydown", rocketMove), 1000) // добавляем отслеживание нажатие кнопок)
+  setTimeout(() => document.addEventListener("keydown", rocketMove), 1000); // добавляем отслеживание нажатие кнопок)
   launchTimer(time);
   starsCreateTimer = setInterval(createStar, starCreateTime);
 }
@@ -123,9 +123,8 @@ function rocketAnimate() {
 }
 
 function up() {
-  return (getRocketCoords().y - 5);
+  return getRocketCoords().y - 5;
 }
-
 
 function gameOver() {
   clearInterval(timerId);
@@ -138,21 +137,23 @@ function gameOver() {
   stars = [];
   explosionRocket(rocketParts);
   document.removeEventListener("keydown", rocketMove);
-
   let starsArr = Array.from(document.getElementsByClassName("star")); // delete stars
-  starsArr.forEach(item => {
-  item.classList.add("markedStar");
-  setTimeout(() => item.remove(), 1000);
-})
+  starsArr.forEach((item) => {
+    item.classList.add("markedStar");
+    setTimeout(() => item.remove(), 1000);
+  });
 }
 
-
-
-
-
 function checkGameBorders(rocket) {
-  if (rocket.getBoundingClientRect().x < 0 || rocket.getBoundingClientRect().y < 0 || (rocket.getBoundingClientRect().x > document.documentElement.offsetWidth - 50) || (rocket.getBoundingClientRect().y > document.documentElement.clientHeight - (document.documentElement.clientHeight / 100 * 20))) {
-
+  if (
+    rocket.getBoundingClientRect().x < 0 ||
+    rocket.getBoundingClientRect().y < 0 ||
+    rocket.getBoundingClientRect().x >
+      document.documentElement.offsetWidth - 50 ||
+    rocket.getBoundingClientRect().y >
+      document.documentElement.clientHeight -
+        (document.documentElement.clientHeight / 100) * 20
+  ) {
     gameOver();
   }
 }
@@ -162,7 +163,7 @@ function setupRocket() {
 }
 
 function getRocketCoords() {
-  return rocketCoords = rocket.getBoundingClientRect();
+  return (rocketCoords = rocket.getBoundingClientRect());
 }
 
 function posGorizontalMoving() {
@@ -184,19 +185,16 @@ function rocketMove(e) {
       checkGameBorders(rocket);
       break;
     case "KeyS":
-      rocket.style.top = `${getRocketCoords().y += 6}px`;
+      rocket.style.top = `${(getRocketCoords().y += 6)}px`;
       checkGameBorders(rocket);
       break;
     case "KeyW":
       increaseFireAnim(rocketFire);
-      rocket.style.top = `${getRocketCoords().y -= 6}px`;
+      rocket.style.top = `${(getRocketCoords().y -= 6)}px`;
       checkGameBorders(rocket);
       break;
   }
 }
-
-
-
 
 function increaseFireAnim(fire) {
   fire.style.scale = 2;
@@ -242,7 +240,6 @@ function createStar() {
   star.style.left = `${x}px`;
 }
 
-
 function starLiveTime(star) {
   star.remove();
 }
@@ -270,26 +267,30 @@ function getStar() {
   }
 }
 
-
 function showTips() {
   const tip = document.createElement("div");
   const tipText = document.createElement("span");
   let c = 0; //counter
   setInterval(() => {
     tipText.classList.add("tipText");
-    if ( c % 2 === 0) {
-      tip.appendChild(showTipMessage("Нажимайте W A S D для перемещения по экрану.", tipText));
+    if (c % 2 === 0) {
+      tip.appendChild(
+        showTipMessage("Нажимайте W A S D для перемещения по экрану.", tipText)
+      );
       c++;
     } else {
-      tip.appendChild(showTipMessage("Не вылетайте за границы. Избегайте столкновения.", tipText));
+      tip.appendChild(
+        showTipMessage(
+          "Не вылетайте за границы. Избегайте столкновения.",
+          tipText
+        )
+      );
       c++;
     }
     tip.classList.add("tip");
-    earth.childNodes[1].append(tip)
+    earth.childNodes[1].append(tip);
   }, 3000);
-
 }
-
 
 function showTipMessage(text, tip) {
   tip.innerHTML = text;
