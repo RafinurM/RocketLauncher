@@ -70,7 +70,7 @@
     position: relative;
     top: -22px;
     left: 15px;
-    background-image: url(/img/fire-70.gif);
+    background-image: url("../img/fire-70.gif");
     visibility: hidden;
 }
 
@@ -90,23 +90,23 @@
 }
 
 .rocketPart1 {
-    background-image: url(/img/RocketParts/Part1.png);
+    background-image: url("../img/RocketParts/Part1.png");
 }
 
 .rocketPart2 {
-    background-image: url(/img/RocketParts/Part2.png);
+    background-image: url("../img/RocketParts/Part2.png");
 }
 
 .rocketPart3 {
-    background-image: url(/img/RocketParts/Part3.png);
+    background-image: url("../img/RocketParts/Part3.png");
 }
 
 .rocketPart4 {
-    background-image: url(/img/RocketParts/Part4.png);
+    background-image: url("../img/RocketParts/Part4.png");
 }
 
 .rocketPart5 {
-    background-image: url(/img/RocketParts/Part5.png);
+    background-image: url("../img/RocketParts/Part5.png");
     margin: auto;
 }
 
